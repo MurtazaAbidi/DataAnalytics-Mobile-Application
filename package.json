@@ -1,0 +1,27 @@
+{
+  "name": "dataanalytics",
+  "version": "1.0.0",
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "main": "a.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://54.242.163.111/harisaqeel/dataanalytics.git"
+  },
+  "author": "haris",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-base": "^15.0.0"
+  }
+}

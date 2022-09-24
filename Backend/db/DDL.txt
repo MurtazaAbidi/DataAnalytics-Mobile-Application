@@ -1,0 +1,84 @@
+CREATE TABLE merchandise (
+    id    SERIAL,
+    name  VARCHAR(50),
+    price DOUBLE PRECISION
+);
+
+ALTER TABLE merchandise ADD CONSTRAINT merchandise_pk PRIMARY KEY ( id );
+
+CREATE TABLE transactions (
+    id                SERIAL,
+    merchandise       JSON,
+    total_no_of_items INTEGER,
+    total_price       DOUBLE PRECISION,
+    user_id           INTEGER NOT NULL
+);
+
+ALTER TABLE transactions ADD CONSTRAINT transactions_pk PRIMARY KEY ( id );
+
+CREATE TABLE Fans (
+    id          SERIAL,
+    Fullname    VARCHAR(100),
+    Age         INTEGER,
+    address     JSON,
+    email       VARCHAR(100),
+    phone_number VARCHAR(50),
+    DOB          DATE ,
+    created_at   DATE NOT NULL DEFAULT CURRENT_DATE,
+    gender      CHAR(1),
+    browser     VARCHAR(20)
+);
+
+ALTER TABLE Fans ADD CONSTRAINT user_pk PRIMARY KEY ( id );
+
+ALTER TABLE transactions
+    ADD CONSTRAINT transactions_user_fk FOREIGN KEY ( user_id )
+        REFERENCES Fans ( id ) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE user (
+    user_id integer NOT NULL,
+    date date,
+    device text,
+    sex text
+);
+
+CREATE TABLE home_page (
+    user_id integer NOT NULL,
+    page text
+);
+
+CREATE TABLE payment_confirm (
+    user_id integer NOT NULL,
+    page text
+);
+
+CREATE TABLE payment_page (
+    user_id integer NOT NULL,
+    page text
+);
+
+CREATE TABLE search_page (
+    user_id integer NOT NULL,
+    page text
+);
+
+CREATE TABLE admin (
+    uid          SERIAL,
+    Fullname    VARCHAR(100),
+    email varchar(50);
+    password varchar(200)
+)
+
+ALTER TABLE ONLY user
+    ADD CONSTRAINT user_pkey PRIMARY KEY (user_id);
+
+
+ALTER TABLE admin ADD CONSTRAINT admin_pkey PRIMARY key (uid);
+
+
+create index by_name_and_ph on  Fans(Fullname,phone_number);
+create index by_ph on Fans(phone_number);
+create index by_user_id on transactions(user_id)
+
+
+
